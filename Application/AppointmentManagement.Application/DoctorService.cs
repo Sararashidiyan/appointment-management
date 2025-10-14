@@ -20,9 +20,10 @@ namespace AppointmentManagement.Application
 
         public async Task Create(CreateDoctorCMD item)
         {
+            var Location = new Location(item.Location.Name, item.Location.Province,item.Location.EnglishName);
             var mobile = new Mobile(item.Mobile);
             var email = new Email(item.Email);
-            var systemUser = new Doctor(item.FirstName, item.LastName, email, mobile, item.Password);
+            var systemUser = new Doctor(item.FirstName, item.LastName, email, mobile, item.Password, Location);
             await _repository.CreateAsync(systemUser);
         }
 

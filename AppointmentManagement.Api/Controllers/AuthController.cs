@@ -9,13 +9,13 @@ namespace AppointmentManagement.Api.Controllers
     public class AuthController(IPatientAuthService _patientAuthService) : ControllerBase
     {
 
-        [HttpPost("Otp-request")]
+        [HttpPost("otp-request")]
         public async Task<IActionResult> OtpRequest(string mobile)
         {
             await _patientAuthService.SendOtp(mobile);
             return Ok("send otp code");
         }
-        [HttpPost("Auth")]
+        [HttpPost("verify")]
         public async Task<IActionResult> Auth(string mobile, string code)
         {
             var token = await _patientAuthService.AuthAsync(mobile, code);

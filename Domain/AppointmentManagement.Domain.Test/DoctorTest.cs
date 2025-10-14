@@ -8,12 +8,27 @@ using AppointmentManagement.Domain.DoctorSchedules;
 using AppointmentManagement.Domain.Exceptions;
 using AppointmentManagement.Domain.Experts;
 using AppointmentManagement.Domain.Users;
+using System.ComponentModel.DataAnnotations;
 
 namespace AppointmentManagement.Domain.Test
 {
     public class DoctorTest
     {
 
+        [Fact]
+        public void location_create_properly()
+        {
+            //Arrange
+            var name = "سارا";
+            var province = "123456";
+            var englishName = "رشیدی یان";
+            //Act
+            var location = new Location(name, province, englishName); 
+            //Assert
+            Assert.Equal(location.Name, name);
+            Assert.Equal(location.Province, province);
+            Assert.Equal(location.EnglishName, englishName);
+        }
         [Fact]
         public void create_should_create_doctor_properly()
         {
@@ -26,8 +41,9 @@ namespace AppointmentManagement.Domain.Test
             var mobile = new Mobile("09126717325");
             var role = RoleType.Doctor;
             var experts = new List<DoctorExpert>() { new(1), new(2) };
+            var location = new Location("تهران", "تهران", "Tehran");
             //Act
-            var doctor = new Doctor(firstName, lastName, email, mobile, pass);
+            var doctor = new Doctor(firstName, lastName, email, mobile, pass, location);
             doctor.AssignDoctorExperts(experts);
             //Assert
             Assert.Equal(firstName, doctor.FirstName);
@@ -37,9 +53,30 @@ namespace AppointmentManagement.Domain.Test
             Assert.Equal(mobile, doctor.Mobile);
             Assert.Equal(email, doctor.Email);
             Assert.Equal(experts, doctor.DoctorExperts);
+            Assert.Equal(location, doctor.Location);
             Assert.Equal(experts.Count, doctor.DoctorExperts.Count);
         }
-        
+
+        [Fact]
+        public void update_should_update_doctor_properly()
+        {
+            //Arrange
+            var firstName = "سارا";
+            var pass = "123456";
+            var lastName = "رشیدی یان";
+            var email = new Email("sara@gmail.com");
+            var mobile = new Mobile("09126717325");
+            var location = new Location("تهران", "تهران", "Tehran");
+            var doctor = new Doctor(firstName, lastName, email, mobile, pass,location);
+            //Act
+            doctor.Update(firstName,lastName,mobile,location);
+            //Assert
+            Assert.Equal(firstName, doctor.FirstName);
+            Assert.Equal(lastName, doctor.LastName);
+            Assert.Equal(email, doctor.Email);
+            Assert.Equal(location, doctor.Location);
+        }
+
 
         [Fact]
         public void Start_time_must_be_earlier_than_end_time()

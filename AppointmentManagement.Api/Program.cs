@@ -1,4 +1,5 @@
 ﻿using AppointmentManagement.Api.Extensions;
+using AppointmentManagement.Api.ExternalResources.NotifyEngine;
 using AppointmentManagement.Application;
 using AppointmentManagement.Application.Extensions;
 using AppointmentManagement.Application.Interfaces.SystemUserAuth;
@@ -16,14 +17,17 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<ICurrentUserService,CurrentUserService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddJwtAuthenticationService(builder.Configuration);
-builder.Services.AddRepositories();
-builder.Services.AddApplicationServices();
 builder.Services.AddDbContext<AppointmentManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddRepositories();
+builder.Services.AddApplicationServices();
+builder.Services.AddNotifyEngineServices(builder.Configuration);
+builder.Services.AddLocationProviderServices(builder.Configuration);
+
 
 var app = builder.Build();
 await app.Services.InitializeDatabase();
-
+app.MapGet("/health", () => Results.Ok("API is running"));
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -34,4 +38,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseRouting();
 app.Run();

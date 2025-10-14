@@ -5,7 +5,7 @@ using AppointmentManagement.Api.ExternalResources.NotifyEngine.SendServices;
 using AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices;
 using AppointmentManagement.Application.Interfaces.Notify;
 
-namespace AppointmentManagement.Api.ExternalResourceApis.SmsNotifyEngine
+namespace AppointmentManagement.Api.ExternalResources.NotifyEngine
 {
     public static class RegisterNotifyEngine
     {

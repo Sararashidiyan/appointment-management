@@ -13,5 +13,12 @@ namespace AppointmentManagement.Application.Interfaces.Doctors.DTOs
         public string Mobile { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public LocationDTO Location { get; set; }
+    }
+    public class LocationDTO
+    {
+        public string Name { get; set; }
+        public string Province { get; set; }
+        public string EnglishName { get; set; }
     }
 }

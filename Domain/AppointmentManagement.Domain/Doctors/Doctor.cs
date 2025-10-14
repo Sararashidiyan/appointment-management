@@ -28,10 +28,16 @@ namespace AppointmentManagement.Domain.Doctors
             PasswordSalt = hmac.Key;
             PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
         }
-        public Doctor(string firstName, string lastName, Email email, Mobile mobile,string password) :
+        public Doctor(string firstName, string lastName, Email email, Mobile mobile, string password, Location location) :
             base(firstName, lastName, email, mobile, RoleType.Doctor)
         {
             CreatePasswordHash(password);
+            Location = location;
+        }
+        public void Update(string firstName, string lastName, Mobile mobile, Location location)
+        {
+            Location = location;
+            base.Update(firstName,  lastName,  mobile);
         }
         public void AssignDoctorExperts(List<DoctorExpert> doctorExperts)
         {
@@ -39,8 +45,21 @@ namespace AppointmentManagement.Domain.Doctors
         }
 
         public List<DoctorExpert> DoctorExperts { get; private set; }
+        public Location Location { get; private set; }
         public List<DoctorDefaultSchedule> DefaultSchedules { get; private set; }
         public List<DoctorOverrideSchedule> OverrideSchedules { get; private set; }
-      
+
+    }
+    public class Location
+    {
+        public string Name { get;private set; }
+        public string Province { get; private set; }
+        public string EnglishName { get; private set; }
+        public Location(string name,string province,string englishName)
+        {
+            Name = name;
+            Province = province;
+            EnglishName = englishName;
+        }
     }
 }

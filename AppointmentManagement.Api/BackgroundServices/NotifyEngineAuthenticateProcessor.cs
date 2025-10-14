@@ -10,17 +10,17 @@ namespace AppointmentManagement.Api.BackgroundServices
             try
             {
                 //await tokenService.AuthenticateAsync();
-                while (!stoppingToken.IsCancellationRequested)
-                {
-                    //await tokenService.RefreshTokenAsync();
-                }
+                //while (!stoppingToken.IsCancellationRequested)
+                //{
+                //    await tokenService.RefreshTokenAsync();
+                //}
             }
             catch (Exception)
             {
 
                 throw;
             }
-            Task.Delay(30000000, stoppingToken).Wait();// wait for 30 min
+            //Task.Delay(30000000, stoppingToken).Wait();// wait for 30 min
         }
     }
 }
