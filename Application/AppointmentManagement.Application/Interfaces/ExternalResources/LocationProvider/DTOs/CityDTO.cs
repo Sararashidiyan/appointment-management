@@ -6,9 +6,7 @@ namespace AppointmentManagement.Application.Interfaces.ExternalResources.Locatio
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
-        [JsonPropertyName("province")]
+        [JsonPropertyName("state")]
         public string Province { get; set; }
-        [JsonPropertyName("english_name")]
-        public string EnglishName { get; set; }
     }
 }

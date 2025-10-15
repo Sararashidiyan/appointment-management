@@ -3,7 +3,7 @@ using AppointmentManagement.Domain.Doctors.DoctorExperts;
 
 namespace AppointmentManagement.Domain.Experts
 {
-    public class Expert: EntityBase<int>
+    public class Expert: AuditableEntityBase<int>
     {
         public string Title { get; private set; }
         public string LatinTitle { get; private set; }

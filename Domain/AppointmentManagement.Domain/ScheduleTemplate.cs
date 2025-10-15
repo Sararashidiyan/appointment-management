@@ -4,7 +4,7 @@ using AppointmentManagement.Domain.Exceptions;
 
 namespace AppointmentManagement.Domain
 {
-    public abstract class ScheduleTemplate: EntityBase<int>
+    public abstract class ScheduleTemplate: AuditableEntityBase<int>
     {
         public SchaduleStartDate SchaduleStartDate { get; private set; }
         public List<WeeklySchedule> WeeklySchedules { get; private set; }

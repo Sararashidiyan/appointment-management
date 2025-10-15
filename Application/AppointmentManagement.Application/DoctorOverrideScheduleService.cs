@@ -33,12 +33,6 @@ namespace AppointmentManagement.Application
             GuardAgainstNullValue(overrideSchedule);
             throw new NotImplementedException();
         }
-
-        public async Task<List<DoctorScheduleDTO>> GetCurrentWeekScheduleByDoctorId(long doctorId)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<List<DoctorOverrideScheduleDTO>> GetDoctorOverrideSchedules(long doctorId)
         {
             var defaultSchedule = await _repository.getAllByDoctorId(doctorId);

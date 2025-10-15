@@ -25,9 +25,7 @@ namespace AppointmentManagement.Infrastructure.Mappings
             builder.Ignore(s => s.IsExpire);
             builder.Ignore(s => s.State);
             builder.Property(s => s.CreatedAt).IsRequired();
-            builder.Property(s => s.CreatedUserId).IsRequired();
-            builder.Property(s => s.UpdatedAt).IsRequired(false);
-            builder.Property(s => s.UpdatedUserId).IsRequired(false);
+            builder.Property(s => s.ChangeStateAt).IsRequired(false);
         }
     } 
 }

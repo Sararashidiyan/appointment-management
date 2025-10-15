@@ -10,8 +10,6 @@ namespace AppointmentManagement.Application.Interfaces.Appointments
         Task Create(CreateAppointmentCMD cmd);
         Task Reject(long id, string reseon);
         Task NoShow(long id);
-        Task<List<AppointmentDTO>> GetAppointmentsByDoctorIdForTheCurrentWeek(long doctorExpertId);
         Task<List<AppointmentDTO>> GetDoctorAppointments(int stateId, DateTime? fromdate, DateTime? todate);
-        Task<List<AppointmentDTO>> GetPatientAppointments();
     }
 }

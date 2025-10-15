@@ -6,6 +6,6 @@ namespace AppointmentManagement.Application.Interfaces.ExternalResources.Locatio
 {
     public interface ILocationProviderService
     {
-        List<CityDTO> Cities { get; set; }
+       Task<List<CityDTO>> GetAllCitiesAsync();
     }
 }

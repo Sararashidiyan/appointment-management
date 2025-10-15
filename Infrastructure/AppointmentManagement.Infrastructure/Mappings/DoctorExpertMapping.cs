@@ -10,7 +10,7 @@ namespace AppointmentManagement.Infrastructure.Mappings
         {
             builder.ToTable("DoctorExperts");
             builder.HasKey(de => new { de.DoctorId, de.ExpertId });
-
+            builder.Property(s => s.Description);
             builder.HasOne(de => de.Doctor)
                    .WithMany(d => d.DoctorExperts)
                    .HasForeignKey(de => de.DoctorId);

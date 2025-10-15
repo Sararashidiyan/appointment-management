@@ -30,11 +30,11 @@ namespace AppointmentManagement.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("ChangeStateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("CreatedUserId")
-                        .HasColumnType("bigint");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerFullName")
                         .IsRequired()
@@ -56,12 +56,6 @@ namespace AppointmentManagement.Infrastructure.Migrations
                     b.Property<string>("StateReseon")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("UpdatedUserId")
-                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -125,6 +119,10 @@ namespace AppointmentManagement.Infrastructure.Migrations
 
                     b.Property<int>("ExpertId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Id")
                         .HasColumnType("int");

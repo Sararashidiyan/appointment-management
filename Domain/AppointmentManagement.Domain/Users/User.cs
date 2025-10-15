@@ -9,7 +9,7 @@ using AppointmentManagement.Domain.Exceptions;
 
 namespace AppointmentManagement.Domain.Users
 {
-    public abstract class User:EntityBase<long>,IAggrigateRoot
+    public abstract class User:AuditableEntityBase<long>,IAggrigateRoot
     {
         protected User()
         {

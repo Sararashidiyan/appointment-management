@@ -7,10 +7,7 @@ namespace AppointmentManagement.Application.Mappers
 {
     public class DoctorScheduleMappers
     {
-        public static List<DoctorScheduleDTO> Map(List<Appointment> appointments, ScheduleTemplate scheduleTemplate)
-        {
-            throw new NotImplementedException();
-        }
+      
         public static DoctorDefaultScheduleDTO Map(DoctorDefaultSchedule defaultSchedule)
         {
             return new DoctorDefaultScheduleDTO

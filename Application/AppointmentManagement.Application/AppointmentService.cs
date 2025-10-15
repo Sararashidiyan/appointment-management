@@ -34,16 +34,7 @@ namespace AppointmentManagement.Application
             await _repository.CreateAsync(appointment);
         }
 
-        public async Task<List<AppointmentDTO>> GetAppointmentsByDoctorIdForTheCurrentWeek(long doctorExpertId)
-        {
-            var appointments = await _repository.GetAppointmentsByDoctorExpertIdForTheCurrentWeek(doctorExpertId);
-            return AppointmentMappers.Map(appointments);
-        }
-        public async Task<List<AppointmentDTO>> GetPatientAppointments()
-        {
-            var appointments = await _repository.GetPatientAppointments();
-            return AppointmentMappers.Map(appointments);
-        }
+       
         public async Task<List<AppointmentDTO>> GetDoctorAppointments(int stateId, DateTime? fromdate, DateTime? todate)
         {
             var appointments = await _repository.GetDoctorAppointments(stateId, fromdate, todate);

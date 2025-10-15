@@ -41,13 +41,7 @@ namespace AppointmentManagement.Api.Controllers
             await _service.NoShow(id);
             return Ok(new { message = "appointment noShow sucessfully" });
         }
-        [HttpPatch("Patient-appointments")]
-        public async Task<IActionResult> GetPatientAppointments()
-        {
-           var appointmets= await _service.GetPatientAppointments();
-            return Ok(new { appointmets });
-
-        }
+       
         [HttpPatch("Doctor-appointments")]
         public async Task<IActionResult> GetDoctorAppointments(int stateId,DateTime? fromdate,DateTime? todate)
         {

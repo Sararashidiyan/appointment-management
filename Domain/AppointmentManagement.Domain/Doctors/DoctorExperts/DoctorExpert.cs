@@ -15,6 +15,7 @@ namespace AppointmentManagement.Domain.Doctors.DoctorExperts
         public Doctor Doctor { get; private set; }
         public Expert Expert { get; private set; }
         public bool IsActive { get; private set; }
+        public string Description { get; private set; }
         public void AddRate(DoctorExpertRate doctorRate)
         {
             DoctorRates.Add(doctorRate);

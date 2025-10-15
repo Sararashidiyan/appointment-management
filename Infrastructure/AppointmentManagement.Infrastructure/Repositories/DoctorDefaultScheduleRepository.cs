@@ -14,9 +14,6 @@ namespace AppointmentManagement.Infrastructure.Repositories
         {
             return await _context.DoctorDefaultSchedules.Where(s=>s.DoctorId== doctorId).ToListAsync();
         }
-        public async Task<DoctorDefaultSchedule> getByDoctorId(long doctorId)
-        {
-            return await _context.DoctorDefaultSchedules.Where(s=>s.DoctorId== doctorId).OrderBy(s=>s.SchaduleStartDate.Value).FirstOrDefaultAsync();
-        }
+        
     }
 }

@@ -9,6 +9,8 @@ namespace AppointmentManagement.Domain.Appointments
 {
     public class Appointment:EntityBase<long>,IAggrigateRoot
     {
+        public DateTime CreatedAt { get; private set; }
+        public DateTime? ChangeStateAt { get;  set; }
         public long CustomerId { get; private set; }
         public long DoctorExpertId { get; private set; }
         public string CustomerFullName { get; private set; }
@@ -27,6 +29,7 @@ namespace AppointmentManagement.Domain.Appointments
             DayOfWeek = dayOfWeek;
             DueDateTime = dateTime;
             State = new RequestedState();
+            CreatedAt = DateTime.Now;
             StateId = AppointmentStateEnum.Requested;
         }
         public Appointment()
