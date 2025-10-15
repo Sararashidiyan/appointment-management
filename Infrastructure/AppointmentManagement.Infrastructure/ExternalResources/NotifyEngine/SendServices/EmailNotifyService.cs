@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using System.Text;
-using AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices;
 using AppointmentManagement.Application.Interfaces.Notify;
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 
-namespace AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.SendServices
+namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.SendServices
 {
     public class EmailNotifyService(IHttpClientFactory httpClientFactory, IAuthService authService) : INotifyService
     {

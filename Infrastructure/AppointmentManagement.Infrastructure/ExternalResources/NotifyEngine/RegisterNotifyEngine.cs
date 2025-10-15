@@ -1,11 +1,9 @@
-﻿using System.Runtime;
-using System.Runtime.CompilerServices;
-using AppointmentManagement.Api.BackgroundServices;
-using AppointmentManagement.Api.ExternalResources.NotifyEngine.SendServices;
-using AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices;
-using AppointmentManagement.Application.Interfaces.Notify;
+﻿using AppointmentManagement.Application.Interfaces.Notify;
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.SendServices;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AppointmentManagement.Api.ExternalResources.NotifyEngine
+namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices
 {
     public static class RegisterNotifyEngine
     {
@@ -21,7 +19,6 @@ namespace AppointmentManagement.Api.ExternalResources.NotifyEngine
             }
             services.Configure<NotifyEngineSetting>(notifyEngineSettingsSection);
             services.AddSingleton<IAuthService, AuthService>();
-            services.AddHostedService<NotifyEngineAuthenticateProcessor>();
             var baseAddress = notifyEngineSetting.base_address;
             services.AddHttpClient("NotifyEngine", client => client.BaseAddress = new Uri(baseAddress));
             return services;

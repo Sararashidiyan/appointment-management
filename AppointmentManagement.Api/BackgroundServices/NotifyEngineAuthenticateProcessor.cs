@@ -1,5 +1,6 @@
 ﻿
-using AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices;
+
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 
 namespace AppointmentManagement.Api.BackgroundServices
 {
@@ -7,20 +8,15 @@ namespace AppointmentManagement.Api.BackgroundServices
     {
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            await tokenService.AuthenticateAsync();
+            Task.Delay(30000000, stoppingToken).Wait();// wait for 30 min
+            while (!stoppingToken.IsCancellationRequested)
             {
-                //await tokenService.AuthenticateAsync();
-                //while (!stoppingToken.IsCancellationRequested)
-                //{
-                //    await tokenService.RefreshTokenAsync();
-                //}
+                await tokenService.RefreshTokenAsync();
+                Task.Delay(30000000, stoppingToken).Wait();// wait for 30 min
             }
-            catch (Exception)
-            {
 
-                throw;
-            }
-            //Task.Delay(30000000, stoppingToken).Wait();// wait for 30 min
+            
         }
     }
 }

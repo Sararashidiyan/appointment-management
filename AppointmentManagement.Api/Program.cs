@@ -1,10 +1,11 @@
-﻿using AppointmentManagement.Api.Extensions;
-using AppointmentManagement.Api.ExternalResources.NotifyEngine;
+﻿using AppointmentManagement.Api.BackgroundServices;
+using AppointmentManagement.Api.Extensions;
 using AppointmentManagement.Application;
 using AppointmentManagement.Application.Extensions;
 using AppointmentManagement.Application.Interfaces.SystemUserAuth;
 using AppointmentManagement.Infrastructure;
 using AppointmentManagement.Infrastructure.Extensions;
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,7 @@ builder.Services.AddDbContext<AppointmentManagementContext>(options =>
 builder.Services.AddRepositories();
 builder.Services.AddApplicationServices();
 builder.Services.AddNotifyEngineServices(builder.Configuration);
+builder.Services.AddHostedService<NotifyEngineAuthenticateProcessor>();
 builder.Services.AddLocationProviderServices(builder.Configuration);
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices
+namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices
 {
     public class NotifyEngineSetting
     {

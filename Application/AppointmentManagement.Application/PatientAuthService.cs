@@ -7,13 +7,13 @@ using AppointmentManagement.Domain.SystemUsers;
 
 namespace AppointmentManagement.Application
 {
-    public class PatientAuthService(/*INotifyService _notifyService,*/ ISystemUserRepository _repository,
+    public class PatientAuthService(INotifyService _notifyService, ISystemUserRepository _repository,
         IJwtTokenGenerator _jwtTokenGenerator, IPatientService _patientService) : IPatientAuthService
     {
         public async Task SendOtp(string mobile)
         {
             var otp = OtpManager.GenerateOtp(mobile);
-           // await _notifyService.SendOtpAsync(otp, mobile);
+            await _notifyService.SendOtpAsync(otp, mobile);
         }
 
         public async Task<string> AuthAsync(string mobile, string otpCode)

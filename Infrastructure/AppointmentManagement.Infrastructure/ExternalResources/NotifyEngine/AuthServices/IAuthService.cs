@@ -1,4 +1,4 @@
-﻿namespace AppointmentManagement.Api.ExternalResources.SmsNotifyEngine.AuthServices
+﻿namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices
 {
     public interface IAuthService
     {
