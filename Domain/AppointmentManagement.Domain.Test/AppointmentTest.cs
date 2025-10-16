@@ -129,7 +129,9 @@ namespace AppointmentManagement.Domain.Test
             var appointment = new Appointment(customerId, doctorExpertId, customerFullName, dayOfWeek, dueDateTime);
             appointment.Compelete();
             //Assert
-            Assert.Throws<InvalidOperationException>(() => appointment.Reject(stateReseon));
+            var ex = Assert.Throws<InvalidOperationException>(() => appointment.Reject(stateReseon));
+            Assert.Equal("Reject not allowed in this state.", ex.Message);
+            ;
         }
         [Fact]
         public void reject_requested_state_should_change_state_to_reject()
@@ -244,7 +246,8 @@ namespace AppointmentManagement.Domain.Test
             var appointment = new Appointment(customerId, doctorExpertId, customerFullName, dayOfWeek, dueDateTime);
             appointment.Compelete();
             //Assert
-            Assert.Throws<InvalidOperationException>(() => appointment.CancelByPatient());
+            var ex = Assert.Throws<InvalidOperationException>(() => appointment.CancelByPatient());
+            Assert.Equal("CancelByPatient not allowed in this state.", ex.Message);
         }
         [Fact]
         public void cancelByPatient_requested_state_should_change_state_to_cancelledByPatient()
@@ -303,7 +306,8 @@ namespace AppointmentManagement.Domain.Test
             var appointment = new Appointment(customerId, doctorExpertId, customerFullName, dayOfWeek, dueDateTime);
             appointment.Compelete();
             //Assert
-            Assert.Throws<InvalidOperationException>(() => appointment.CancelByDoctor(stateReseon));
+            var ex = Assert.Throws<InvalidOperationException>(() => appointment.CancelByDoctor(stateReseon));
+            Assert.Equal("CancelByDoctor not allowed in this state.", ex.Message);
         }
         [Fact]
         public void cancelByDoctor_cancelledByPatient_state_should_throw_exception()

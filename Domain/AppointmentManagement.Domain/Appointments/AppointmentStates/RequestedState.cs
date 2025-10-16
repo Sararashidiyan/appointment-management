@@ -6,8 +6,8 @@ namespace AppointmentManagement.Domain.Appointments.AppointmentStates
     {
         public override void Compelete(Appointment appointment)
         {
-            if (!appointment.IsExpire)
-                throw new AppointmentNotExpiredException(appointment.DueDateTime.Value);
+            //if (!appointment.IsExpire)
+            //    throw new AppointmentNotExpiredException(appointment.DueDateTime.Value);
             appointment.State = new CompeletedState();
             appointment.StateId = AppointmentStateEnum.Compeleted;
             appointment.ChangeStateAt = DateTime.Now;
