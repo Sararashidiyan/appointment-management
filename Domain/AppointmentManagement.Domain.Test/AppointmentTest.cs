@@ -131,7 +131,6 @@ namespace AppointmentManagement.Domain.Test
             //Assert
             var ex = Assert.Throws<InvalidOperationException>(() => appointment.Reject(stateReseon));
             Assert.Equal("Reject not allowed in this state.", ex.Message);
-            ;
         }
         [Fact]
         public void reject_requested_state_should_change_state_to_reject()
