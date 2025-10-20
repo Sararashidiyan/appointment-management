@@ -1,4 +1,5 @@
-﻿using AppointmentManagement.Api.BackgroundServices;
+﻿using AppointmentManagement.Api.Authorization;
+using AppointmentManagement.Api.BackgroundServices;
 using AppointmentManagement.Api.Extensions;
 using AppointmentManagement.Application;
 using AppointmentManagement.Application.Extensions;
@@ -25,6 +26,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddNotifyEngineServices(builder.Configuration);
 builder.Services.AddHostedService<NotifyEngineAuthenticateProcessor>();
 builder.Services.AddLocationProviderServices(builder.Configuration);
+builder.Services.AddAuthorizationPolicy();
 
 
 var app = builder.Build();

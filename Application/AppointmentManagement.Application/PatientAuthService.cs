@@ -23,14 +23,14 @@ namespace AppointmentManagement.Application
             var user = await _repository.FindByMobile(mobile);
             if (user == null)
                 return "";
-            return _jwtTokenGenerator.GenerateToken(user);
+            return _jwtTokenGenerator.GeneratePatientToken(user);
         }
 
         public async Task<string> Register(CreatePatientCMD item)
         {
             await _patientService.Create(item);
             var user = await _repository.FindByMobile(item.Mobile);
-            return _jwtTokenGenerator.GenerateToken(user);
+            return _jwtTokenGenerator.GeneratePatientToken(user);
         }
     }
 

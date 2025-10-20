@@ -25,7 +25,7 @@ namespace AppointmentManagement.Application
             var isVerified=  user.VerifyPassword(cmd.Password);
             if (!isVerified)
                 throw new UnauthorizedAccessException();
-            return _jwtTokenGenerator.GenerateToken(user);
+            return _jwtTokenGenerator.GenerateUserToken(user);
         }
     }
 }

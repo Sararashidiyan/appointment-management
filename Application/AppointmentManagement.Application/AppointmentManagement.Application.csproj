@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\PatientAuth\DTOs\" />
+    <Folder Include="Interfaces\RolePermissions\DTOs\" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using AppointmentManagement.Application.Interfaces.ClinicSettings;
 using AppointmentManagement.Application.Interfaces.ClinicSettings.DTOs;
+using AppointmentManagement.Api.Authorization;
+using AppointmentManagement.Domain.Authorization;
 
 namespace AppointmentManagement.Api.Controllers
 {
@@ -10,18 +12,14 @@ namespace AppointmentManagement.Api.Controllers
     public class ClinicSettingController(IClinicSettingService _service) : ControllerBase
     {
         [HttpGet("{id}")]
+        [PanelPermission(PanelPermissionEnum.ViewlinicSetting)]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _service.GetById(id);
             return Ok(result);
         }
-        [HttpPost()]
-        public async Task<IActionResult> Create(CreateClinicSettingCMD cmd)
-        {
-            await _service.Create(cmd);
-            return Ok(new { message = "clinicSetting create sucessfully" });
-        }
         [HttpPut]
+        [PanelPermission(PanelPermissionEnum.UpdateClinicSetting)]
         public async Task<IActionResult> Modify(ModifyClinicSettingCMD cmd)
         {
             await _service.Modify(cmd);

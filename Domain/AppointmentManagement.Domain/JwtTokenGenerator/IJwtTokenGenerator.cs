@@ -9,6 +9,8 @@ namespace AppointmentManagement.Domain.JwtTokenGenerator
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateToken(User user);
+        string GeneratePatientToken(User user);
+        string GenerateDoctorToken(User user);
+        string GenerateUserToken(User user);
     }
 }

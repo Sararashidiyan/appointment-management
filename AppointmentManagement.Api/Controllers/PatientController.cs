@@ -1,5 +1,7 @@
-﻿using AppointmentManagement.Application.Interfaces.Patients;
+﻿using AppointmentManagement.Api.Authorization;
+using AppointmentManagement.Application.Interfaces.Patients;
 using AppointmentManagement.Application.Interfaces.Patients.DTOs;
+using AppointmentManagement.Domain.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +13,7 @@ namespace AppointmentManagement.Api.Controllers
     public class PatientController(IPatientService _service) : ControllerBase
     {
         [HttpGet("{id}")]
+        [PanelPermission(PanelPermissionEnum.ViewPatients)]
         public async Task<IActionResult> GetById(long id)
         {
             var result = await _service.GetById(id);
@@ -18,18 +21,15 @@ namespace AppointmentManagement.Api.Controllers
         }
         
         [HttpGet()]
+        [PanelPermission(PanelPermissionEnum.ViewPatients)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetAll();
             return Ok(result);
         }
-        [HttpGet("Profile")]
-        public async Task<IActionResult> Profile()
-        {
-            var result = await _service.Profile();
-            return Ok(result);
-        }
+       
         [HttpPut]
+        [PatientPermission(PatientPermissionEnum.UpdateProfile)]
         public async Task<IActionResult> Modify(ModifyPatientCMD cmd)
         {
             await _service.Modify(cmd);
