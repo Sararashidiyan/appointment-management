@@ -1,4 +1,5 @@
 ﻿using AppointmentManagement.Api.Authorization;
+using AppointmentManagement.Application.Interfaces.PatientAuth;
 using AppointmentManagement.Application.Interfaces.Patients;
 using AppointmentManagement.Application.Interfaces.Patients.DTOs;
 using AppointmentManagement.Domain.Authorization;
@@ -7,10 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentManagement.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientController(IPatientService _service) : ControllerBase
+    public class PatientController(IPatientService _service,IPatientRegisterService _patientRegisterService) : ControllerBase
     {
         [HttpGet("{id}")]
         [PanelPermission(PanelPermissionEnum.ViewPatients)]
@@ -34,6 +34,13 @@ namespace AppointmentManagement.Api.Controllers
         {
             await _service.Modify(cmd);
             return Ok(new { message = "user modify sucessfully" });
+        }
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register(CreatePatientCMD item)
+        {
+            var token = await _patientRegisterService.Register(item);
+            return Ok(new { token, message = "user register successfully" });
         }
     }
 }

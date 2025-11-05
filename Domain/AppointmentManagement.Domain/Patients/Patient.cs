@@ -16,8 +16,8 @@ namespace AppointmentManagement.Domain.Patients
         {
 
         }
-        public Patient(string firstName, string lastName, Email email, Mobile mobile, NationalCode nationalCode)
-            : base(firstName, lastName, email, mobile,RoleType.Patient)
+        public Patient(string firstName, string lastName, Mobile mobile, NationalCode nationalCode)
+            : base(firstName, lastName, mobile,RoleType.Patient)
         {
             NationalCode=nationalCode;
 

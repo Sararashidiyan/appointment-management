@@ -5,7 +5,7 @@ using AppointmentManagement.Application;
 using AppointmentManagement.Application.Extensions;
 using AppointmentManagement.Application.Interfaces.SystemUserAuth;
 using AppointmentManagement.Infrastructure;
-using AppointmentManagement.Infrastructure.Extensions;
+using AppointmentManagement.Infrastructure.DependencyInjections;
 using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +22,8 @@ builder.Services.AddJwtAuthenticationService(builder.Configuration);
 builder.Services.AddDbContext<AppointmentManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddRepositories();
+builder.Services.AddOtpGenerator();
+builder.Services.AddDomainServices();
 builder.Services.AddApplicationServices();
 builder.Services.AddNotifyEngineServices(builder.Configuration);
 builder.Services.AddHostedService<NotifyEngineAuthenticateProcessor>();
@@ -39,8 +41,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
+
+app.UseRouting();             
+app.UseAuthentication();       
+app.UseAuthorization();        
 
 app.MapControllers();
-app.UseRouting();
 app.Run();

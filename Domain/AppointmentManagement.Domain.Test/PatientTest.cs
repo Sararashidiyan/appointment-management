@@ -12,19 +12,17 @@ namespace AppointmentManagement.Domain.Test
             var firstName = "سارا";
             var lastName = "رشیدی یان";
             var FullName = $"{firstName} {lastName}";
-            var email = new Email("sara@gmail.com");
             var mobile = new Mobile("09126717325");
             var nationalCode = new NationalCode("0017812984");
             var role = RoleType.Patient;
             //Act
-            var patient = new Patient(firstName, lastName, email,mobile, nationalCode);
+            var patient = new Patient(firstName, lastName,mobile, nationalCode);
             //Assert
             Assert.Equal(firstName, patient.FirstName);
             Assert.Equal(lastName, patient.LastName);
             Assert.Equal(FullName, patient.FullName);
             Assert.Equal(role, patient.Role);
             Assert.Equal(mobile, patient.Mobile);
-            Assert.Equal(email, patient.Email);
             Assert.Equal(nationalCode, patient.NationalCode);
         }
         [Fact]
@@ -36,7 +34,7 @@ namespace AppointmentManagement.Domain.Test
             var email = new Email("sara@gmail.com");
             var mobile = new Mobile("09126717325");
             var nationalCode = new NationalCode("0017812984");
-            var patient = new Patient(firstName, lastName, email, mobile, nationalCode);
+            var patient = new Patient(firstName, lastName, mobile, nationalCode);
             //Act
             patient.Update(firstName, lastName, email, nationalCode);
             //Assert

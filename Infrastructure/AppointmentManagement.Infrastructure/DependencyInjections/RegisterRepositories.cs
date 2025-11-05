@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AppointmentManagement.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AppointmentManagement.Infrastructure.Extensions
+namespace AppointmentManagement.Infrastructure.DependencyInjections
 {
     public static class RegisterRepositories
     {

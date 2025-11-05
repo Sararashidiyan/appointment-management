@@ -10,5 +10,7 @@ namespace AppointmentManagement.Domain.SystemUsers
     {
         Task<SystemUser> FindByEmail(string email);
         Task<SystemUser> FindByMobile(string mobile);
+        Task<bool> IsEmailDuplicate(string email, long? id);
+        Task<bool> IsPhoneNumberDuplicate(string number, long? id);
     }
 }

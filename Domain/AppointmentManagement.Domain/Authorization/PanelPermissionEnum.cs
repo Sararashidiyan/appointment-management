@@ -23,6 +23,8 @@
         UpdateExpert, 
         DeleteExpert,
         ActivateExpert,
-        DeactivateExpert
+        DeactivateExpert,
+        ViewRolePermissions,
+        UpdateRolePermission
     }
 }

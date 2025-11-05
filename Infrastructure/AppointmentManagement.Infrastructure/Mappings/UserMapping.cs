@@ -26,7 +26,7 @@ namespace AppointmentManagement.Infrastructure.Mappings
             builder.OwnsOne(d => d.Email, ff =>
             {
                 ff.Property(h => h.Value)
-                .HasColumnName("Email");
+                .HasColumnName("Email").IsRequired(false);
             });
           
         }

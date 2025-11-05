@@ -8,7 +8,6 @@ namespace AppointmentManagement.Application.Interfaces.Patients
         Task<PatientDTO> GetById(long id);
         Task<PatientDTO> Profile();
         Task<List<PatientDTO>> GetAll();
-        Task Create(CreatePatientCMD id);
         Task Modify(ModifyPatientCMD id);
     }
 }

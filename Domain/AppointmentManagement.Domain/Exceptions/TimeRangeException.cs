@@ -10,8 +10,4 @@ namespace AppointmentManagement.Domain.Exceptions
     {
         public TimeRangeException():base("Start time must be earlier than end time.") { }
     } 
-    public class ScheduleTimeSlotOverlapException : DomaiException
-    {
-        public ScheduleTimeSlotOverlapException():base("ScheduleTimeSlot overlap.") { }
-    }
 }

@@ -16,4 +16,5 @@ namespace AppointmentManagement.Application.Interfaces.Patients.DTOs
         public string Email { get; set; }
         public string Mobile { get; set; }
     }
+ 
 }

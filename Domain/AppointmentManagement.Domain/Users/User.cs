@@ -18,7 +18,7 @@ namespace AppointmentManagement.Domain.Users
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string FullName => $"{FirstName} {LastName}";
-        public Email Email { get; private set; }//Username
+        public Email? Email { get; private set; }//Username
         public Mobile Mobile { get; private set; }
         public RoleType Role { get; private set; }
         public bool IsActive { get; private set; }
@@ -27,6 +27,14 @@ namespace AppointmentManagement.Domain.Users
             FirstName = firstName;
             LastName = lastName;
             Email = email;
+            Mobile = mobile;
+            IsActive = true;
+            Role = role;
+        }
+        public User(string firstName, string lastName, Mobile mobile, RoleType role)
+        {
+            FirstName = firstName;
+            LastName = lastName;
             Mobile = mobile;
             IsActive = true;
             Role = role;

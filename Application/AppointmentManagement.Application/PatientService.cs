@@ -9,15 +9,6 @@ namespace AppointmentManagement.Application
 {
     public class PatientService(IPatientRepository _repository,ICurrentUserService currentUserService) : IPatientService
     {
-        public async Task Create(CreatePatientCMD item)
-        {
-            var mobile = new Mobile(item.Mobile);
-            var email = new Email(item.Email);
-            var nationalCode = new NationalCode(item.NationalCode);
-            var patient = new Patient(item.FirstName,item.LastName,email, mobile,nationalCode);
-            await _repository.CreateAsync(patient);
-        }
-
         public async Task<List<PatientDTO>> GetAll()
         {
             var patients = await _repository.GetAllAsync();

@@ -3,7 +3,7 @@ using AppointmentManagement.Infrastructure.LocationProviders.LocationProvider;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AppointmentManagement.Infrastructure.Extensions
+namespace AppointmentManagement.Infrastructure.DependencyInjections
 {
     public static class RegisterLocationProvider
     {

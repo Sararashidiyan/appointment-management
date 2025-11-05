@@ -16,9 +16,4 @@
     <ProjectReference Include="..\..\Domain\AppointmentManagement.Domain\AppointmentManagement.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\PatientAuth\DTOs\" />
-    <Folder Include="Interfaces\RolePermissions\DTOs\" />
-  </ItemGroup>
-
 </Project>

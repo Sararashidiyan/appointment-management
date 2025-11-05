@@ -6,6 +6,7 @@ namespace AppointmentManagement.Infrastructure
 {
     public abstract class BaseRepository<TKey, T>(AppointmentManagementContext context) : IRepository<TKey, T> where T : class
     {
+        public readonly AppointmentManagementContext _context;
         public async Task CreateAsync(T entity)
         {
             await context.Set<T>().AddAsync(entity);

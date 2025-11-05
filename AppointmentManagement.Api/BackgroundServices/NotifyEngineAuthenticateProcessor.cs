@@ -1,6 +1,4 @@
-﻿
-
-using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
+﻿using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 
 namespace AppointmentManagement.Api.BackgroundServices
 {

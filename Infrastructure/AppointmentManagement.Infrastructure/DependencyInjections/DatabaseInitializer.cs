@@ -1,9 +1,9 @@
 ﻿using AppointmentManagement.Domain.SystemUsers;
 using AppointmentManagement.Domain.Users;
-using AppointmentManagement.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AppointmentManagement.Api.Extensions
+namespace AppointmentManagement.Infrastructure.DependencyInjections
 {
     public static class DatabaseInitializer
     {

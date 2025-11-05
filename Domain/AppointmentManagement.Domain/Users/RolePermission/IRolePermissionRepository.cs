@@ -2,5 +2,6 @@
 {
     public interface IRolePermissionRepository:IRepository<int,RolePermission>
     {
+        List<RolePermission> GetByRole(RoleType role);
     }
 }
