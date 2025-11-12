@@ -6,7 +6,7 @@ using AppointmentManagement.Application.Extensions;
 using AppointmentManagement.Application.Interfaces.SystemUserAuth;
 using AppointmentManagement.Infrastructure;
 using AppointmentManagement.Infrastructure.DependencyInjections;
-using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +32,7 @@ builder.Services.AddAuthorizationPolicy();
 
 
 var app = builder.Build();
-await app.Services.InitializeDatabase();
+//await app.Services.InitializeDatabase();
 app.MapGet("/health", () => Results.Ok("API is running"));
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
