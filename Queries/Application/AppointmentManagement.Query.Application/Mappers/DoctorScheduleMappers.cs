@@ -2,7 +2,7 @@
 using AppointmentManagement.Domain;
 using AppointmentManagement.Domain.Appointments;
 using AppointmentManagement.Domain.DoctorSchedules;
-using AppointmentManagement.Query.Application.Interfaces.DoctorSchedules.Data;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules.Data;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace AppointmentManagement.Query.Application.Mappers

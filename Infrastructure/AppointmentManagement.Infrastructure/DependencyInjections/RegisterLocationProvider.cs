@@ -1,5 +1,5 @@
 ﻿using AppointmentManagement.Application.Interfaces.ExternalResources.LocationProvider;
-using AppointmentManagement.Infrastructure.LocationProviders.LocationProvider;
+using AppointmentManagement.Infrastructure.ExternalResources.LocationProvider;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

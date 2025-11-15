@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppointmentManagement.Application.Interfaces.DoctorSchedules;
 using AppointmentManagement.Core;
 using AppointmentManagement.Domain.Appointments;
 using AppointmentManagement.Domain.DoctorSchedules;
 using AppointmentManagement.Infrastructure;
 using AppointmentManagement.Infrastructure.Repositories;
-using AppointmentManagement.Query.Application.Interfaces.DoctorSchedules.Data;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules.Data;
 using AppointmentManagement.Query.Application.Mappers;
 using Microsoft.EntityFrameworkCore;
 

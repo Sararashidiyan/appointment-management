@@ -1,7 +1,6 @@
-﻿
-using AppointmentManagement.Query.Application.Interfaces.DoctorSchedules.Data;
+﻿using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules.Data;
 
-namespace AppointmentManagement.Application.Interfaces.DoctorSchedules
+namespace AppointmentManagement.Query.Application.Interfaces.DoctorSchadules
 {
     public interface IDoctorScheduleService
     {

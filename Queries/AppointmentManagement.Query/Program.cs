@@ -1,6 +1,6 @@
-using AppointmentManagement.Application.Interfaces.DoctorSchedules;
 using AppointmentManagement.Query.Application;
 using AppointmentManagement.Query.Application.Interfaces.Doctors;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules;
 
 var builder = WebApplication.CreateBuilder(args);
 

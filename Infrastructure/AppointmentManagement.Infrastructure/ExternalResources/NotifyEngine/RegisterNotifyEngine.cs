@@ -1,9 +1,10 @@
 ﻿using AppointmentManagement.Application.Interfaces.Notify;
+using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices;
 using AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.SendServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine.AuthServices
+namespace AppointmentManagement.Infrastructure.ExternalResources.NotifyEngine
 {
     public static class RegisterNotifyEngine
     {

@@ -1,4 +1,4 @@
-﻿namespace AppointmentManagement.Infrastructure.LocationProviders.LocationProvider
+﻿namespace AppointmentManagement.Infrastructure.ExternalResources.LocationProvider
 {
     public class LocationSetting
     {

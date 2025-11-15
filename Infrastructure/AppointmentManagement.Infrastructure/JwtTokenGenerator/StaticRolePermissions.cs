@@ -1,6 +1,6 @@
 ﻿using AppointmentManagement.Domain.Authorization;
 
-namespace AppointmentManagement.Infrastructure
+namespace AppointmentManagement.Infrastructure.JwtTokenGenerator
 { 
     public static class StaticRolePermissions
     {

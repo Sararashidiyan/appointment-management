@@ -1,6 +1,6 @@
-﻿using AppointmentManagement.Application.Interfaces.DoctorSchedules;
-using AppointmentManagement.Query.Application.Interfaces.Doctors.Data;
-using AppointmentManagement.Query.Application.Interfaces.DoctorSchedules.Data;
+﻿using AppointmentManagement.Query.Application.Interfaces.Doctors.Data;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules;
+using AppointmentManagement.Query.Application.Interfaces.DoctorSchadules.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentManagement.Query.Controllers

@@ -4,7 +4,7 @@ using AppointmentManagement.Application.Interfaces.ExternalResources.LocationPro
 using AppointmentManagement.Application.Interfaces.ExternalResources.LocationProvider;
 using System.Net.Http;
 
-namespace AppointmentManagement.Infrastructure.LocationProviders.LocationProvider
+namespace AppointmentManagement.Infrastructure.ExternalResources.LocationProvider
 {
     public class LocationProviderService(IHttpClientFactory httpClientFactory, ILogger<LocationProviderService> logger) : ILocationProviderService
     {
